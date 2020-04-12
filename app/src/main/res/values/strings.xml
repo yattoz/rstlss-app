@@ -1,8 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <!-- URLs -->
-    <string name="STREAM_URL_RADIO">https://relay0.r-a-d.io/main.mp3</string>
-    <string name="STREAM_URL_TSUMUGI">http://shelter.mahoro-net.org:8000/tsumugi</string>
     <string name="STREAM_URL_RSTLSS">http://stream.radiosolution.fr/rstlss.mp3</string>
     <string name="github_url_new_issue">https://github.com/yattoz/Tsumugi-app/issues/</string>
     <string name="website_url">https://tsumugi.forum-thalie.fr/</string>
@@ -11,8 +9,8 @@
     <string name="planning_url">ADD SOME URL HERE</string>
 
 
-    <string name="app_name">Tsumugi</string>
-    <string name="title_nowplaying">Tsumugi</string>
+    <string name="app_name">RSTLSS</string>
+    <string name="title_nowplaying">RSTLSS</string>
     <string name="title_queue_lp">Songs</string>
     <string name="title_chat">Chat</string>
     <string name="title_news">News</string>
@@ -33,7 +31,7 @@
     <string name="action_bug_submit">Submit a bug (GitHub)</string>
 
     <string name="nowPlayingNotificationChannel">Tsumugi Stream Service</string>
-    <string name="nowPlayingChannelId">fr.forum_thalie.tsumugi.PLAYER_SERVICE</string>
+    <string name="nowPlayingChannelId">com.rstlss.app.PLAYER_SERVICE</string>
 
     <string name="snackbarPersistent">Stay visible, can be closed with \"OK\" button</string>
     <string name="snackbarNonPersistent">Disappear after some time</string>

@@ -426,7 +426,7 @@ class RadioService : MediaBrowserServiceCompat() {
         )
         // This is the MediaSource representing the media to be played.
         radioMediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
-            .createMediaSource(Uri.parse(getString(R.string.STREAM_URL_TSUMUGI)))
+            .createMediaSource(Uri.parse(getString(R.string.STREAM_URL_RSTLSS)))
 
         fallbackMediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
             .createMediaSource(Uri.parse("file:///android_asset/the_stream_is_down.mp3"))
