@@ -27,7 +27,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/rootLayout"
-    tools:context=".MainActivity">
+    tools:context="com.rstlss.app.MainActivity">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/toolbarLayout"

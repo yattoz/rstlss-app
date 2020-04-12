@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment_programme"
-        android:name="fr.forum_thalie.tsumugi.ui.programme.ProgrammeFragment"
+        android:name="com.rstlss.app.ui.programme.ProgrammeFragment"
         android:label="@string/title_programme" />
 
 </navigation>

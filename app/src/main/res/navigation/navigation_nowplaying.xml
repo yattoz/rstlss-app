@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment_nowplaying"
-        android:name="fr.forum_thalie.tsumugi.ui.nowplaying.NowPlayingFragment"
+        android:name="com.rstlss.app.ui.nowplaying.NowPlayingFragment"
         android:label="@string/title_nowplaying" />
 
 </navigation>

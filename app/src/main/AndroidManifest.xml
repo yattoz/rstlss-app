@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="fr.forum_thalie.tsumugi">
+    package="com.rstlss.app">
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,8 +37,8 @@
             tools:targetApi="n">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="fr.forum_thalie.tsumugi.PLAY_OR_FALLBACK" />
-                <action android:name="fr.forum_thalie.tsumugi.NOTIFY" /> <!-- this is for Snooze -->
+                <action android:name="com.rstlss.app.PLAY_OR_FALLBACK" />
+                <action android:name="com.rstlss.app.NOTIFY" /> <!-- this is for Snooze -->
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </receiver>
@@ -59,7 +59,7 @@
             android:name=".ParametersActivity"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.rstlss.app.MainActivity"
             android:screenOrientation="fullSensor" />
 
         <receiver android:name="androidx.media.session.MediaButtonReceiver">
