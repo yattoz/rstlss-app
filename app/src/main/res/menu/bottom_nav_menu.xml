@@ -11,10 +11,12 @@
         android:icon="@drawable/ic_playlist_music"
         android:title="@string/title_queue_lp"/>
 
+    <!--
     <item
         android:id="@+id/navigation_news"
         android:icon="@drawable/ic_newspaper"
         android:title="@string/title_news"/>
+    -->
 
     <item
         android:id="@+id/navigation_programme"

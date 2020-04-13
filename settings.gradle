@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='Tsumugi-app'
+rootProject.name='rstlss-app'

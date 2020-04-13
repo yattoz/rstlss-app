@@ -37,6 +37,8 @@
         app:defaultValue="false"
         />
 
+    <!-- WARNING: RSTLSS DOESN'T HAVE ANY API -->
+    <!--
     <ListPreference
         app:key="fetchPeriod"
         app:iconSpaceReserved="false"
@@ -46,5 +48,6 @@
         android:entryValues="@array/fetchPeriodValues"
         android:defaultValue="10"
         />
+    -->
 
 </PreferenceScreen>
