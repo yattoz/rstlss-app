@@ -29,8 +29,8 @@ android {
         applicationId "com.rstlss.app"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 115
-        versionName "1.1.5"
+        versionCode 01
+        versionName "0.1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
