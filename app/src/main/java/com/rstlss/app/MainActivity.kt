@@ -41,7 +41,7 @@ class MainActivity : BaseActivity() {
         val navGraphIds = listOf(
             R.navigation.navigation_nowplaying,
             R.navigation.navigation_songs,
-            /* R.navigation.navigation_news, */
+            R.navigation.navigation_news,
             R.navigation.navigation_programme
         )
 

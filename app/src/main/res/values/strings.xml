@@ -2,10 +2,10 @@
 
     <!-- URLs -->
     <string name="STREAM_URL_RSTLSS">http://stream.radiosolution.fr/rstlss.mp3</string>
-    <string name="github_url_new_issue">https://github.com/yattoz/Tsumugi-app/issues/</string>
-    <string name="website_url">https://tsumugi.forum-thalie.fr/</string>
-    <string name="rss_url">https://tsumugi.forum-thalie.fr/?feed=rss2</string>
-    <string name="API_URL">https://radio.mahoro-net.org/airtime/api/live-info-v2</string>
+    <string name="github_url_new_issue">https://github.com/yattoz/rstlss-app/issues/</string>
+    <string name="website_url">http://rstlss.com</string>
+    <string name="rss_url">http://rstlss.com/feed/</string>
+    <string name="API_URL">ADD API URL HERE</string>
     <string name="planning_url">ADD SOME URL HERE</string>
 
 
