@@ -25,7 +25,7 @@ import java.io.File
 import java.io.IOException
 */
 
-class MainActivity : com.rstlss.app.BaseActivity() {
+class MainActivity : BaseActivity() {
 
     private val clockTicker: Timer = Timer()
     private var currentNavController: LiveData<NavController>? = null
@@ -35,21 +35,21 @@ class MainActivity : com.rstlss.app.BaseActivity() {
      * Called on first creation and when restoring state.
      */
     private fun setupBottomNavigationBar() {
-        val bottomNavigationView : BottomNavigationView = findViewById(com.rstlss.app.R.id.bottom_nav)
+        val bottomNavigationView : BottomNavigationView = findViewById(R.id.bottom_nav)
 
         //val navGraphIds = listOf(R.navigation.home, R.navigation.list, R.navigation.form)
         val navGraphIds = listOf(
-            com.rstlss.app.R.navigation.navigation_nowplaying,
-            com.rstlss.app.R.navigation.navigation_songs,
-            com.rstlss.app.R.navigation.navigation_news,
-            com.rstlss.app.R.navigation.navigation_programme
+            R.navigation.navigation_nowplaying,
+            R.navigation.navigation_songs,
+            /* R.navigation.navigation_news, */
+            R.navigation.navigation_programme
         )
 
         // Setup the bottom navigation view with a list of navigation graphs
         val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
-            containerId = com.rstlss.app.R.id.nav_host_container,
+            containerId = R.id.nav_host_container,
             intent = intent
         )
 
@@ -70,7 +70,7 @@ class MainActivity : com.rstlss.app.BaseActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu, this adds items to the action bar if it is present.
-        menuInflater.inflate(com.rstlss.app.R.menu.toolbar_menu, menu)
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
         return true
     }
 
@@ -87,30 +87,30 @@ class MainActivity : com.rstlss.app.BaseActivity() {
                 true
             }
             */
-            com.rstlss.app.R.id.action_refresh -> {
+            R.id.action_refresh -> {
                 PlayerStore.instance.queue.clear()
                 //PlayerStore.instance.lp.clear()
                 PlayerStore.instance.initApi()
-                val s = Snackbar.make(findViewById(com.rstlss.app.R.id.nav_host_container), getString(
-                    com.rstlss.app.R.string.refreshing
+                val s = Snackbar.make(findViewById(R.id.nav_host_container), getString(
+                    R.string.refreshing
                 ) as CharSequence, Snackbar.LENGTH_LONG)
                 s.show()
                 true
             }
-            com.rstlss.app.R.id.action_settings -> {
-                val i = Intent(this, com.rstlss.app.ParametersActivity::class.java)
+            R.id.action_settings -> {
+                val i = Intent(this, ParametersActivity::class.java)
                 startActivity(i)
                 true
             }
-            com.rstlss.app.R.id.action_sleep -> {
-                val i = Intent(this, com.rstlss.app.ParametersActivity::class.java)
-                i.putExtra("action", com.rstlss.app.ActionOpenParam.SLEEP.name)
+            R.id.action_sleep -> {
+                val i = Intent(this, ParametersActivity::class.java)
+                i.putExtra("action", ActionOpenParam.SLEEP.name)
                 startActivity(i)
                 true
             }
-            com.rstlss.app.R.id.action_alarm -> {
-                val i = Intent(this, com.rstlss.app.ParametersActivity::class.java)
-                i.putExtra("action", com.rstlss.app.ActionOpenParam.ALARM.name) // TODO change value with Actions.something
+            R.id.action_alarm -> {
+                val i = Intent(this, ParametersActivity::class.java)
+                i.putExtra("action", ActionOpenParam.ALARM.name)
                 startActivity(i)
                 true
             }
@@ -133,18 +133,18 @@ class MainActivity : com.rstlss.app.BaseActivity() {
         RadioAlarm.instance.setNextAlarm(c = this) // this checks the preferenceStore before actually setting an alarm, don't worry.
 
         // initialize programmatically accessible colors
-        com.rstlss.app.colorBlue = ResourcesCompat.getColor(resources,
-            com.rstlss.app.R.color.rblue, null)
-        com.rstlss.app.colorWhited = ResourcesCompat.getColor(resources,
-            com.rstlss.app.R.color.whited, null)
-        com.rstlss.app.colorGreenList = (ResourcesCompat.getColorStateList(resources,
-            com.rstlss.app.R.color.button_green, null))
-        com.rstlss.app.colorRedList = (ResourcesCompat.getColorStateList(resources,
-            com.rstlss.app.R.color.button_red, null))
-        com.rstlss.app.colorGreenListCompat = (ResourcesCompat.getColorStateList(resources,
-            com.rstlss.app.R.color.button_green_compat, null))
-        com.rstlss.app.colorAccent = (ResourcesCompat.getColor(resources,
-            com.rstlss.app.R.color.colorAccent, null))
+        colorBlue = ResourcesCompat.getColor(resources,
+            R.color.rblue, null)
+        colorWhited = ResourcesCompat.getColor(resources,
+            R.color.whited, null)
+        colorGreenList = (ResourcesCompat.getColorStateList(resources,
+            R.color.button_green, null))
+        colorRedList = (ResourcesCompat.getColorStateList(resources,
+            R.color.button_red, null))
+        colorGreenListCompat = (ResourcesCompat.getColorStateList(resources,
+            R.color.button_green_compat, null))
+        colorAccent = (ResourcesCompat.getColor(resources,
+            R.color.colorAccent, null))
 
         // fetch program
         Planning.instance.parseUrl(/* getString(R.string.planning_url) */ context = this)
@@ -162,7 +162,7 @@ class MainActivity : com.rstlss.app.BaseActivity() {
             // this is useful since the service must be started to register bluetooth devices buttons.
             // (in case someone opens the app then pushes the PLAY button from their bluetooth device)
             if(!PlayerStore.instance.isServiceStarted.value!!)
-                actionOnService(com.rstlss.app.Actions.STOP)
+                actionOnService(Actions.STOP)
 
             // initialize some API data
             PlayerStore.instance.initPicture(this)
@@ -176,7 +176,7 @@ class MainActivity : com.rstlss.app.BaseActivity() {
             // the timer is declared after access to PlayerStore so that PlayerStore is already initialized:
             // Otherwise it makes the PlayerStore call its init{} block from a background thread --> crash
             clockTicker.schedule(
-                com.rstlss.app.Tick(),
+                Tick(),
                 0,
                 500
             )
@@ -184,11 +184,11 @@ class MainActivity : com.rstlss.app.BaseActivity() {
         }
 
         // initialize the UI
-        setTheme(com.rstlss.app.R.style.AppTheme)
-        setContentView(com.rstlss.app.R.layout.activity_main)
+        setTheme(R.style.AppTheme)
+        setContentView(R.layout.activity_main)
         attachKeyboardListeners()
 
-        val toolbar : Toolbar = findViewById(com.rstlss.app.R.id.toolbar)
+        val toolbar : Toolbar = findViewById(R.id.toolbar)
 
         // before setting up the bottom bar, we must declare the top bar that will be used by the bottom bar to display titles.
         setSupportActionBar(toolbar)
@@ -208,9 +208,9 @@ class MainActivity : com.rstlss.app.BaseActivity() {
     // ####################################
 
 
-    private fun actionOnService(a: com.rstlss.app.Actions, v: Int = 0)
+    private fun actionOnService(a: Actions, v: Int = 0)
     {
-            val i = Intent(this, com.rstlss.app.RadioService::class.java)
+            val i = Intent(this, RadioService::class.java)
             i.putExtra("action", a.name)
             i.putExtra("value", v)
             //[REMOVE LOG CALLS]Log.d(tag, "Sending intent ${a.name}")

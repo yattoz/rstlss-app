@@ -7,6 +7,8 @@ import kotlin.collections.ArrayList
 const val tag = "com.rstlss.app"
 const val noConnectionValue = "—"
 const val streamDownValue = "Tsumugi est HS !" // we don't want this value to be displaed in the "last played" screen.
+val notSongArray: Array<String> = arrayOf("BTN", "RSTLSS", "PIERRE")
+
 val weekdaysArray : Array<String> = arrayOf( "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche")
 const val newsDateTimePattern = "EEE, d MMM yyyy HH:mm:ss Z"
 const val newsDisplayDatePattern = "dd MMM yyyy"

@@ -136,10 +136,11 @@ class PlayerStore {
             }
             isInitialized = true
         }
-        com.rstlss.app.Async(scrape, post)
+        // com.rstlss.app.Async(scrape, post) //WARNING: RSTLSS DOESN'T HAVE ANY API.
     }
 
     fun fetchApi(isCompensatingLatency: Boolean = false) {
+
         val post: (parameter: Any?) -> Unit = {
             val result = JSONObject(it as String)
             if (!result.isNull("tracks"))
@@ -147,7 +148,7 @@ class PlayerStore {
                 updateApi(result, isCompensatingLatency)
             }
         }
-        com.rstlss.app.Async(scrape, post)
+        // com.rstlss.app.Async(scrape, post) //WARNING: RSTLSS DOESN'T HAVE ANY API.
     }
 
     private fun extractSong(songJSON: JSONObject) : Song {
@@ -174,7 +175,12 @@ class PlayerStore {
         //if (lp.isNotEmpty()){
             val n = Song()
             n.copy(currentSongBackup)
-            if (n != Song(noConnectionValue) && n != Song(streamDownValue))
+            var isSong: Boolean = true
+            notSongArray.forEach {
+                isSong = isSong && !n.toString().contains(it)
+            }
+
+            if (n.title.value != noConnectionValue && n != Song(streamDownValue) && isSong)
                 lp.add(0, n)
             currentSongBackup.copy(currentSong)
             isLpUpdated.value = true
@@ -251,7 +257,7 @@ class PlayerStore {
             postFun(result)
         }
 
-        com.rstlss.app.Async(sleepScrape, post)
+        // com.rstlss.app.Async(sleepScrape, post) // WARNING: RSTLSS DOESN'T HAVE ANY API
     }
 
 
@@ -261,7 +267,7 @@ class PlayerStore {
 
     fun initPicture(c: Context) {
         streamerPicture.value = BitmapFactory.decodeResource(c.resources,
-            R.drawable.logo_roundsquare
+            R.drawable.logo_padded
         )
     }
 
